@@ -1,4 +1,5 @@
 {
-    "rust-analyzer.linkedProjects": ["performance-measurements/Cargo.toml"],
+    "rust-analyzer.linkedProjects": ["performance-measurements-systic/Cargo.toml"],
     "rust-analyzer.cargo.target": "thumbv7em-none-eabihf",
+    "rust-analyzer.checkOnSave": true,
 }

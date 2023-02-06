@@ -135,6 +135,7 @@ mod app {
 
         defmt::info!("Hello from task3!");
     }
+    
 
     // TODO: Add tasks
     #[task(shared=[pin10], priority=2)]
