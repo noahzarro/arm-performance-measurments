@@ -5,7 +5,7 @@ use performance_measurements_systic as _; // global logger + panicking-behavior 
 
 #[rtic::app(
     device = stm32f1xx_hal::pac, // TODO: Replace `some_hal::pac` with the path to the PAC
-    dispatchers = [SPI1, SPI2, UART4, USART1, USART2] // TODO: Replace the `FreeInterrupt1, ...` with free interrupt vectors if software tasks are used
+    dispatchers = [SPI1, SPI2, EXTI15_10, USART1, USART2] // TODO: Replace the `FreeInterrupt1, ...` with free interrupt vectors if software tasks are used
 )]
 mod app {
 
@@ -226,8 +226,6 @@ mod app {
 
     #[task(shared = [high_prio_lock_time], local = [], priority = 3)]
     fn task3(mut cx: task3::Context) {
-
-        defmt::info!("In task 3");
 
         let time_before_lock = unsafe {let timer_reg_ptr: *const usize = 0xE000E018 as *const usize; read_volatile(timer_reg_ptr)};
         cx.shared.high_prio_lock_time.lock(|high_prio_lock_time| {
