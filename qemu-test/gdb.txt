@@ -1,0 +1,77 @@
+=cmd-param-changed,param="logging enabled",value="on"
+23^done
+(gdb) 
+24^done
+(gdb) 
+25^done,variables=[]
+(gdb) 
+26^done
+(gdb) 
+27^done
+(gdb) 
+28^done,variables=[]
+(gdb) 
+29^error,msg="Problem parsing arguments: interpreter-exec console \"while 1"
+(gdb) 
+&"> x/i $pc\n"
+&"Cannot enable the TUI when the interpreter is 'mi2'\n"
+^error,msg="Cannot enable the TUI when the interpreter is 'mi2'"
+(gdb) 
+&"> stepi\n"
+&"Cannot enable the TUI when the interpreter is 'mi2'\n"
+^error,msg="Cannot enable the TUI when the interpreter is 'mi2'"
+(gdb) 
+&"> end\"\n"
+&"Cannot enable the TUI when the interpreter is 'mi2'\n"
+^error,msg="Cannot enable the TUI when the interpreter is 'mi2'"
+(gdb) 
+30^done
+(gdb) 
+31^done,variables=[]
+(gdb) 
+32^error,msg="Problem parsing arguments: interpreter-exec console \"while 1"
+(gdb) 
+&"x/i $pc\n"
+~"=> 0x448 <qemu_test::__cortex_m_rt_main_trampoline+4>:\tbl\t0x44e <qemu_test::__cortex_m_rt_main>\n"
+^done
+(gdb) 
+&"stepi\n"
+^running
+*running,thread-id="all"
+(gdb) 
+~"qemu_test::__cortex_m_rt_main () at src/main.rs:14\n"
+~"14\tfn main() -> ! {\n"
+*stopped,reason="end-stepping-range",frame={addr="0x0000044e",func="qemu_test::__cortex_m_rt_main",args=[],file="src/main.rs",fullname="/home/noah/Projects/arm-test/qemu-test/src/main.rs",line="14",arch="armv7"},thread-id="1",stopped-threads="all"
+&"end\"\n"
+&"This command cannot be used at the top level.\n"
+^error,msg="This command cannot be used at the top level."
+(gdb) 
+33^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+34^done,threads=[{id="1",target-id="Thread 1.1",details="CPU#0 [running]",frame={level="0",addr="0x0000044e",func="qemu_test::__cortex_m_rt_main",args=[],file="src/main.rs",fullname="/home/noah/Projects/arm-test/qemu-test/src/main.rs",line="14",arch="armv7"},state="stopped"}]
+(gdb) 
+35^done
+(gdb) 
+36^done,variables=[]
+(gdb) 
+37^done,register-values=[{number="0",value="536870912"},{number="1",value="536870912"},{number="2",value="7616"},{number="3",value="536936356"},{number="4",value="0"},{number="5",value="0"},{number="6",value="0"},{number="7",value="536936432"},{number="8",value="0"},{number="9",value="0"},{number="10",value="0"},{number="11",value="0"},{number="12",value="536936356"},{number="13",value="0x2000fff0"},{number="14",value="1101"},{number="15",value="0x44e <qemu_test::__cortex_m_rt_main>"},{number="25",value="1627389952"}]
+(gdb) 
+38^done,depth="2"
+(gdb) 
+39^done,stack=[frame={level="0",addr="0x0000044e",func="qemu_test::__cortex_m_rt_main",file="src/main.rs",fullname="/home/noah/Projects/arm-test/qemu-test/src/main.rs",line="14",arch="armv7"},frame={level="1",addr="0x0000044c",func="qemu_test::__cortex_m_rt_main_trampoline",file="src/main.rs",fullname="/home/noah/Projects/arm-test/qemu-test/src/main.rs",line="13",arch="armv7"}]
+(gdb) 
+40^done,depth="2"
+(gdb) 
+41^done,stack=[frame={level="0",addr="0x0000044e",func="qemu_test::__cortex_m_rt_main",file="src/main.rs",fullname="/home/noah/Projects/arm-test/qemu-test/src/main.rs",line="14",arch="armv7"},frame={level="1",addr="0x0000044c",func="qemu_test::__cortex_m_rt_main_trampoline",file="src/main.rs",fullname="/home/noah/Projects/arm-test/qemu-test/src/main.rs",line="13",arch="armv7"}]
+(gdb) 
+42^done
+(gdb) 
+43^done,variables=[]
+(gdb) 
+44^done
+(gdb) 
+=thread-exited,id="1",group-id="i1"
+=thread-group-exited,id="i1"
+45^done
+(gdb) 
+^exit
